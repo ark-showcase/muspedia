@@ -1,0 +1,10 @@
+{% extends 'info/base.html' %}
+
+{% block body %}
+    <h4>Edit Album</h4>
+    <form action="" method="POST">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" name="submit" value="Update" class="btn btn-info btn-sm">
+    </form>
+{% endblock %}

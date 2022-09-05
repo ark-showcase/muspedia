@@ -1,0 +1,20 @@
+{% extends 'info/base.html' %}
+
+{% block body %}
+    <table class="table table-bordered">
+        <tr>
+            <th>Album Name</th>
+            <th>Album Musician</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+        </tr>
+        <tr>
+            <td>{{album_info.name}}</td>
+            <td><a href="{% url 'info:musician_detail' musician_id=album_musician.id %}">{{album_musician}}</a></td>
+            <td>{{album_info.release_date|date:"M d, Y"}}</td>
+            <td>{{album_info.num_stars}}</td>
+        </tr>
+    </table>
+    <a href="{% url 'info:update_album' id=album_info.id %}" class="btn btn-primary btn-sm">Edit</a>
+    <a href="{% url 'info:delete_album' id=album_info.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+{% endblock %}
